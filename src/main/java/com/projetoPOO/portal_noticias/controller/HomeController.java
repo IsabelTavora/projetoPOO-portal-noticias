@@ -7,24 +7,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class HomeController {
     
-    // @GetMapping("/")
-    // public String home() {
-    //    return "index";
-    // }
-
     @GetMapping("/")
+    public String home() {
+       return "index";
+    }
+
+    @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String loginPost() {
+    @PostMapping("/logon")
+    public String logonPost() {
         return "redirect:/admin";
     }
 
     @PostMapping("/logout")
     public String logoutPost() {
-        return "redirect:/";
+        return "redirect:/login";
+    }
+
+    @PostMapping("/login")
+    public String loginPost() {
+        return "redirect:/login";
     }
 
     @GetMapping("/admin")
